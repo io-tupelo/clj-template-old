@@ -76,6 +76,14 @@ Change one of the `dotest` forms in `tst.demo.core` to `dotest-focus`.  If there
 in the project, then ***only*** the "focus" tests will be run.  This is helpful when you want to
 temporarily focus on a specific feature, without the distraction of all the other tests runnning.
 
+== Documentation
+
+- The Tupelo Clojure library https://github.com/cloojure/tupelo[on GitHub]
+- The Tupelo Clojure API Docs on https://cljdoc.org/d/tupelo/tupelo/0.9.183/doc/readme[cljdoc.org]
+- The https://clojure.org/api/cheatsheet[Clojure CheatSheet] - always have a browser tab open here, and study frequently!
+- The Clojure CheatSheet links to examples on http://clojuredocs.org/[ClojureDocs.org]
+- More good info can be found at http://clojure-doc.org/[Clojure-Doc.org] (different from above!)
+- The https://clojure.org/[Clojure.org] website
 
 == License
 

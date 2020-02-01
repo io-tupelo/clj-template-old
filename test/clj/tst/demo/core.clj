@@ -19,6 +19,6 @@
 (dotest
   (let [result (with-out-str
                  (-main))]
-    (spyx result)
+    (spyx result) ; prints result to stdout, with label
     (ts/contains-str? result "Hello")))
 
