@@ -78,12 +78,12 @@ temporarily focus on a specific feature, without the distraction of all the othe
 
 == Documentation
 
-- The Tupelo Clojure library https://github.com/cloojure/tupelo[on GitHub]
-- The Tupelo Clojure API Docs on https://cljdoc.org/d/tupelo/tupelo/0.9.183/doc/readme[cljdoc.org]
+- The https://github.com/cloojure/tupelo[Tupelo Clojure] library on GitHub
+- The Tupelo Clojure https://cljdoc.org/d/tupelo/tupelo/0.9.183/doc/readme[API Docs] on cljdoc.org
 - The https://clojure.org/api/cheatsheet[Clojure CheatSheet] - always have a browser tab open here, and study frequently!
-- The Clojure CheatSheet links to examples on http://clojuredocs.org/[ClojureDocs.org]
-- More good info can be found at http://clojure-doc.org/[Clojure-Doc.org] (different from above!)
-- The https://clojure.org/[Clojure.org] website
+- The above links to examples on http://clojuredocs.org/[ClojureDocs.org]
+- More good info can be found at http://clojure-doc.org/[Clojure-Doc.org] (similar name, different website!)
+- https://clojure.org/[Clojure.org] - the mothership
 
 == License
 
