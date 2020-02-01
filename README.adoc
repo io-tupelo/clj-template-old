@@ -70,6 +70,12 @@ Finished at 07:59:53.863 (run time: 0.034s)
 Note that the tests were all re-run in only 34 milliseconds (nearly instantaneous), since the JVM was already
 started and all the Clojure & library code doesn't need to be re-compiled.
 
+=== Using "Focus" Mode
+
+Change one of the `dotest` forms in `tst.demo.core` to `dotest-focus`.  If there is at least one `dotest-focus` present
+in the project, then ***only*** the "focus" tests will be run.  This is helpful when you want to
+temporarily focus on a specific feature, without the distraction of all the other tests runnning.
+
 == Keeping Dependency Versions Up-To-Date
 
 This project includes the `lein-ancient` plugin, which will tell you if any of your dependency
@@ -91,12 +97,6 @@ if you are already up-to-date on everything.
 
 The function `demo.core/add2` shows the usage of https://github.com/plumatic/schema[Plumatic Schema] to document
 function argument types and return value type.  This is a lifesaver!
-
-=== Using "Focus" Mode
-
-Change one of the `dotest` forms in `tst.demo.core` to `dotest-focus`.  If there is at least one `dotest-focus` present
-in the project, then ***only*** the "focus" tests will be run.  This is helpful when you want to
-temporarily focus on a specific feature, without the distraction of all the other tests runnning.
 
 == Documentation
 
