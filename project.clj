@@ -4,6 +4,9 @@
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [
+                 [cambium/cambium.codec-simple "0.9.3"]
+                 [cambium/cambium.core         "0.9.3"]
+                 [cambium/cambium.logback.core "0.4.3"]
                  [org.clojure/clojure "1.10.1"]
                  [prismatic/schema "1.1.12"]
                  [tupelo "0.9.188"]

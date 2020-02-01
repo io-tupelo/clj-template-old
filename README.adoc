@@ -60,10 +60,10 @@ upon any file change. For example, maks a simple change in the namespace `demo.c
 the tests re-run:
 
 ```pre
-<snip>
+...
 Testing tst.demo.core
 result => "Hello, World! Again!\n"
-<snip>
+...
 Finished at 07:59:53.863 (run time: 0.034s)
 ```
 

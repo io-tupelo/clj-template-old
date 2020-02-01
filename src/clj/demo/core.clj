@@ -1,7 +1,7 @@
 (ns demo.core
   (:use tupelo.core)
   (:require
-    [clojure.string :as str]
+    [cambium.core :as log]
     [schema.core :as s])
   (:gen-class))
 
@@ -10,8 +10,19 @@
    y :- s/Num]
   (+ x y))
 
+(defn print-clj
+  [] (println "clojure.core/println"))
+(defn print-out
+  [] (-> System/out (.println "System.out.println")))
+(defn print-err
+  [] (-> System/err (.println "System.err.println")))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World! Again!"))
+  (log/info "-main - enter")
+
+  (println "Hello, World! Again!")
+
+  (log/info "-main - leave"))
 
