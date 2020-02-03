@@ -9,6 +9,49 @@ This Clojure project shows my favorite layout of for both source & test files
 (sample Java source is included as well).  The project is also set-up to use the Tupelo Clojure
 library and the Lein Test-Refresh plugin.
 
+== How to User This Project
+
+To use this project, we assume you have already installed Java, Clojure, and Leiningen, and `git`.
+
+=== Clone the Project Using Git
+
+Verify you have Git installed:
+
+```bash
+> git --version
+git version 2.25.0
+```
+
+Clone using SSH into a new project names `demo`:
+```bash
+> git clone  git@github.com:io-tupelo/clj-template.git  demo
+```
+
+or, clone using HTTPS (if you don't have SSH set up on GitHub):
+```bash
+> git clone  https://github.com/io-tupelo/clj-template.git  demo
+```
+
+Then `cd` (change directory) into the new project:
+
+```bash
+> cd demo
+```
+
+=== Verify you have Java, Clojure, and Leiningen set up correctly
+
+Try the following commands, and make sure you get similar output:
+
+```bash
+> java --version
+java 13 2019-09-17
+Java(TM) SE Runtime Environment (build 13+33)
+Java HotSpot(TM) 64-Bit Server VM (build 13+33, mixed mode, sharing)
+
+~/io.tupelo/clj-template > lein --version
+Leiningen 2.9.1 on Java 13 Java HotSpot(TM) 64-Bit Server VM
+```
+
 == Running Unit Tests - Plain
 
 ```pre
@@ -30,10 +73,25 @@ Ran 4 tests containing 6 assertions.
 0 failures, 0 errors.
 ```
 
+I do the above so often that I have a Bash/Zsh alias set up:
+
+```bash
+alias lct="time (lein do clean, test)"
+```
+
 == Running Unit Tests with `lein test-refresh`
+
+IMHO, https://github.com/jakemcc/lein-test-refresh[the lein-test-refresh project] provides the best way of doing
+iterative development in Clojure, re-running unit tests every time you save a source file from the editor.
 
 ```pre
 > lein test-refresh
+```
+
+or make an alias:
+
+```bash
+alias lctr="lein do clean, test-refresh"
 ```
 
 with result:
