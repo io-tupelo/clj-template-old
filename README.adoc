@@ -6,8 +6,9 @@ A simple template for Clojure projects
 == Overview
 
 This Clojure project shows my favorite layout of for both source & test files
-(sample Java source is included as well).  The project is also set-up to use the Tupelo Clojure
-library and the Lein Test-Refresh plugin.
+(sample Java source is included as well).  The project is also set-up to use the
+https://github.com/cloojure/tupelo[Tupelo Clojure] library and the
+https://github.com/jakemcc/lein-test-refresh[lein-test-refresh] plugin.
 
 == How to User This Project
 
@@ -22,14 +23,14 @@ Verify you have Git installed:
 git version 2.25.0
 ```
 
-Clone using SSH into a new project names `demo`:
+Use `git` to clone the project (via SSH) into a new project names `demo`:
 ```bash
-> git clone  git@github.com:io-tupelo/clj-template.git  demo
+> git clone  git@github.com:io-tupelo/clj-template.git  demo  # git ssh URL
 ```
 
-or, clone using HTTPS (if you don't have SSH set up on GitHub):
+or, clone via HTTPS (if you don't have SSH set up on your computer & GitHub):
 ```bash
-> git clone  https://github.com/io-tupelo/clj-template.git  demo
+> git clone  https://github.com/io-tupelo/clj-template.git  demo  # git https URL
 ```
 
 Then `cd` (change directory) into the new project:
@@ -48,7 +49,7 @@ java 13 2019-09-17
 Java(TM) SE Runtime Environment (build 13+33)
 Java HotSpot(TM) 64-Bit Server VM (build 13+33, mixed mode, sharing)
 
-~/io.tupelo/clj-template > lein --version
+> lein --version
 Leiningen 2.9.1 on Java 13 Java HotSpot(TM) 64-Bit Server VM
 ```
 
@@ -76,7 +77,7 @@ Ran 4 tests containing 6 assertions.
 I do the above so often that I have a Bash/Zsh alias set up:
 
 ```bash
-alias lct="time (lein do clean, test)"
+alias lct="time (lein do clean, test)"       # lct => Lein Clean Test
 ```
 
 == Running Unit Tests with `lein test-refresh`
@@ -91,7 +92,7 @@ iterative development in Clojure, re-running unit tests every time you save a so
 or make an alias:
 
 ```bash
-alias lctr="lein do clean, test-refresh"
+alias lctr="lein do clean, test-refresh"    # lctr => Lein Clean Test-Refresh
 ```
 
 with result:
@@ -113,9 +114,9 @@ Finished at 07:56:48.252 (run time: 6.709s)
 ...
 ```
 
-in this instance, the test output pauses after printint the elapsed time, and waits to re-run
-upon any file change. For example, maks a simple change in the namespace `demo.core` and see
-the tests re-run:
+in this instance, the test output pauses after printing the elapsed time, and waits to re-run
+upon any file change. For example, make a simple change in the namespace `demo.core`  by adding
+the word "Again!" to the `println` expression, and watch as the tests are automatically re-run:
 
 ```pre
 ...
@@ -126,13 +127,15 @@ Finished at 07:59:53.863 (run time: 0.034s)
 ```
 
 Note that the tests were all re-run in only 34 milliseconds (nearly instantaneous), since the JVM was already
-started and all the Clojure & library code doesn't need to be re-compiled.
+started and Clojure itself (plus library code) has already been compiled.
 
 === Using "Focus" Mode
 
 Change one of the `dotest` forms in `tst.demo.core` to `dotest-focus`.  If there is at least one `dotest-focus` present
 in the project, then ***only*** the "focus" tests will be run.  This is helpful when you want to
 temporarily focus on a specific feature, without the distraction of all the other tests runnning.
+
+Note that only `lein test-refresh` (i.e. `lctr`) will honor the `focus` mode; `lein test` (i.e. `lct`) will always run all tests.
 
 == Keeping Dependency Versions Up-To-Date
 
