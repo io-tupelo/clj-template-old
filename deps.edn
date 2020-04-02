@@ -1,0 +1,17 @@
+; deps.edn
+{:paths   ["src/clj"]
+ :deps    {
+           cambium/cambium.codec-simple {:mvn/version "0.9.3"}
+           cambium/cambium.core         {:mvn/version "0.9.3"}
+           cambium/cambium.logback.core {:mvn/version "0.4.3"}
+           org.clojure/clojure          {:mvn/version "1.10.1"}
+           prismatic/schema             {:mvn/version "1.1.12"}
+           tupelo                       {:mvn/version "0.9.200"}
+           }
+
+ :aliases {:test {
+                  :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
+                ; :extra-paths ["test/clj"]
+                ; :main-opts   ["-m" "kaocha.runner"]
+                  }}
+ }

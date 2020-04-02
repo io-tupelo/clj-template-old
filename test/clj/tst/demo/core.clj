@@ -4,6 +4,10 @@
     [tupelo.string :as ts])
   (:import [demo Calc]))
 
+(deftest t-007
+  (println "running t-007")
+  (is true) )
+
 (dotest
   (is= 5 (+ 2 3))
   (isnt= 9 (+ 2 3))

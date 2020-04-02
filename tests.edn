@@ -1,0 +1,7 @@
+{:tests [{:id          :unit
+          :test-paths  ["test/clj"]
+          :ns-patterns [".*"]}]
+
+; :reporter kaocha.report.progress/report
+; :plugins [:kaocha.plugin/profiling :kaocha.plugin/notifier]
+}
