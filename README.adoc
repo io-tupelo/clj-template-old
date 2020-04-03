@@ -137,6 +137,22 @@ temporarily focus on a specific feature, without the distraction of all the othe
 
 Note that only `lein test-refresh` (i.e. `lctr`) will honor the `focus` mode; `lein test` (i.e. `lct`) will always run all tests.
 
+== Running Unit Tests with Deps/CLI & Kaocha
+
+These files allow one to test/run the code via Deps/CLI:
+
+ - deps.edn
+ - tests.edn
+ - bin/kaocha
+
+Just type the following to run the unit tets:
+
+```pre
+> bin/kaocha
+```
+
+It will also compile any Java source code and include it in the unit tests.
+
 == Keeping Dependency Versions Up-To-Date
 
 This project includes the `lein-ancient` plugin, which will tell you if any of your dependency
