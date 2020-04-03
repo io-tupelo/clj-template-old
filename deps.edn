@@ -1,5 +1,6 @@
-{:paths   ["src/clj"
-           "src/java"]
+{:paths   ["src/clj" ; Clojure source files
+           "target/java" ; compiled Java *.class files
+           ]
  :deps    {
            cambium/cambium.codec-simple {:mvn/version "0.9.3"}
            cambium/cambium.core         {:mvn/version "0.9.3"}
@@ -9,8 +10,6 @@
            tupelo                       {:mvn/version "0.9.200"}
            }
 
- :aliases {:test {
-                  :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
-                ; :main-opts   ["-m" "kaocha.runner"]
+ :aliases {:test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.0-612"}}
                   }}
  }

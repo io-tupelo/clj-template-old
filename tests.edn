@@ -1,4 +1,6 @@
-; ***** Be sure to use tagged reader literal '#kaocha/v1' *****
+; *************************************************************************
+; ***** IMPORTANT:  Be sure to use tagged reader literal '#kaocha/v1' *****
+; *************************************************************************
 #kaocha/v1 {:tests
             [{:id          :unit
               :test-paths  ["test/clj"]

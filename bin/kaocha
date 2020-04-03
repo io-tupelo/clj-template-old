@@ -1,4 +1,5 @@
 #!/bin/bash -v
-rm -f src/**/*.class
-time javac src/**/*.java
-clojure -A:test -m kaocha.runner "$@"
+rm -f target
+find  src/java  -name "*.java"  > target/java-src-files.txt
+javac  @target/java-src-files.txt  -d target/java
+time clojure  -A:test  -m kaocha.runner "$@"
