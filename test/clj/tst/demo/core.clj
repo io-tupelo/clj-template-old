@@ -1,12 +1,8 @@
 (ns tst.demo.core
   (:use demo.core tupelo.core tupelo.test)
   (:require
-    [tupelo.string :as ts])
-  (:import [demo Calc]))
-
-(deftest t-007
-  (println "running t-007")
-  (is true) )
+    [clojure.string :as str])
+ (:import [demo Calc]) )
 
 (dotest
   (is= 5 (+ 2 3))
@@ -16,7 +12,7 @@
   (is= 3 (add2 1 2))
   (throws? (add2 1 "two"))) ; Prismatic Schema will throw since "two" is not a number
 
-
+; NOTE:  Clojure Deps/CLI can't handle Java source code at present
 (dotest   ; Java source code testing
   (isnt= 5 (Calc/add2 4 1)) ; returns a double, so this fails
   (is= 5.0 (Calc/add2 4 1)) ; correct version

@@ -1,2 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -v
+rm -f src/**/*.class
+time javac src/**/*.java
 clojure -A:test -m kaocha.runner "$@"
