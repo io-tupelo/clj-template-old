@@ -189,7 +189,7 @@ function argument types and return value type.  This is a lifesaver!
 - The book https://www.oreilly.com/library/view/living-clojure/9781491909270/[Living Clojure]
 - The https://github.com/clojure-cookbook/clojure-cookbook[Clojure Cookbook]
 - The https://www.clojure-toolbox.com/[Clojure Toolbox] has a large list of libraries you can use
-- https://clojure.org/[Clojure.org] - the mothership
+- https://clojure.org/[Clojure.org] and https://clojurescript.org[ClojureScript.org] - the mothership
 
 == License
 
