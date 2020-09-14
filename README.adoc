@@ -179,7 +179,9 @@ function argument types and return value type.  This is a lifesaver!
 
 - The https://github.com/cloojure/tupelo[Tupelo Clojure] library on GitHub
 - The Tupelo Clojure https://cljdoc.org/d/tupelo/tupelo/0.9.183/doc/readme[API Docs] on cljdoc.org
-- The https://clojure.org/api/cheatsheet[Clojure CheatSheet].  Always have a browser tab open here, and ***study frequently!***
+- The https://clojure.org/api/cheatsheet[Clojure CheatSheet].  Always have a browser tab open here,
+  and **__study frequently!__**
+- The https://cljs.info/cheatsheet[ClojureScript CheatSheet].  **__Another great resource!__**
 - The above links to examples on http://clojuredocs.org/[ClojureDocs.org]
 - Also see http://clojure-doc.org/[Clojure-Doc.org] (similar name, different website!)
 - The online book https://www.braveclojure.com/[Brave Clojure].  Be sure to also buy a copy!
@@ -187,7 +189,7 @@ function argument types and return value type.  This is a lifesaver!
 - The book https://www.oreilly.com/library/view/living-clojure/9781491909270/[Living Clojure]
 - The https://github.com/clojure-cookbook/clojure-cookbook[Clojure Cookbook]
 - The https://www.clojure-toolbox.com/[Clojure Toolbox] has a large list of libraries you can use
-- https://clojure.org/[Clojure.org] - the mothership
+- https://clojure.org/[Clojure.org] and https://clojurescript.org[ClojureScript.org] - the mothership
 
 == License
 
