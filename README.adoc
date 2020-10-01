@@ -184,6 +184,7 @@ function argument types and return value type.  This is a lifesaver!
 - The https://cljs.info/cheatsheet[ClojureScript CheatSheet].  **__Another great resource!__**
 - The above links to examples on http://clojuredocs.org/[ClojureDocs.org]
 - Also see http://clojure-doc.org/[Clojure-Doc.org] (similar name, different website!)
+- API Documentation for most any Clojure library can be found link:https://cljdoc.org/[at cljdoc.org]
 - The online book https://www.braveclojure.com/[Brave Clojure].  Be sure to also buy a copy!
 - The book https://pragprog.com/book/roclojure/getting-clojure[Getting Clojure]
 - The book https://www.oreilly.com/library/view/living-clojure/9781491909270/[Living Clojure]
