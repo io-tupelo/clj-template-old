@@ -7,6 +7,7 @@
                  [cambium/cambium.codec-simple "1.0.0"]
                  [cambium/cambium.core         "1.0.0"]
                  [cambium/cambium.logback.core "0.4.4"]
+                 [clj-python/libpython-clj "1.46"]
                  [org.clojure/clojure "1.10.1"]
                  [prismatic/schema "1.1.12"]
                  [tupelo "20.08.27b"]

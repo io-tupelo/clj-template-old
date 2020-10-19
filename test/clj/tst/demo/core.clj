@@ -1,21 +1,25 @@
 (ns tst.demo.core
   (:use demo.core tupelo.core tupelo.test)
   (:require
-    [clojure.string :as str])
- (:import [demo Calc]) )
+    [libpython-clj.python :as py]
+    [libpython-clj.python :refer [py. py.. py.-]]
+    [libpython-clj.require :refer [require-python]]
+    ))
+
+(py/initialize!
+  :python-executable "/usr/bin/python3.8"
+  :library-path "/usr/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so")
+
+(require-python '[numpy :as np])
 
 (dotest
-  (is= 5 (+ 2 3))
-  (isnt= 9 (+ 2 3))
-  (throws? (/ 1 0)) ; verify that an illegal operation throws an exception
+  (spyx-pretty (np/array [[1 2] [3 4]]))
+  (let [x (spyx (np/arange 6))
+        y (spyx-pretty (np/reshape x [2 3]))
+        ]
+    )
+  (spy-pretty :result
+    (-> (np/arange 6) (np/reshape [2 3])))
 
-  (is= 3 (add2 1 2))
-  (throws? (add2 1 "two"))) ; Prismatic Schema will throw since "two" is not a number
-
-; NOTE:  Clojure Deps/CLI can't handle Java source code at present
-(dotest   ; Java source code testing
-  (isnt= 5 (Calc/add2 4 1)) ; returns a double, so this fails
-  (is= 5.0 (Calc/add2 4 1)) ; correct version
-  (is (rel= 5.000000001
-        (Calc/add2 4 1) :digits 5))) ; another option
+  )
 
