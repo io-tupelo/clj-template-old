@@ -57,9 +57,7 @@
     (is= (it-> m1
            (misc/walk-map->sorted it)
            (sp/select [:aaa sp/MAP-VALS :price] it))
-      [10 11 12])
-    )
-  )
+      [10 11 12])))
 
 (dotest
   (let [state-0  {"aaa" {0 {:dnum 0 :price 10}
@@ -68,39 +66,42 @@
                   "bbb" {2 {:dnum 2 :price 22}
                          1 {:dnum 1 :price 21}
                          0 {:dnum 0 :price 20}}}
+
+        ; add the "day index" 0,1,2... to each entity map
         add-iday (fn [mkt-info ticker]
                    (let [day-nums   (sp/select [ticker sp/MAP-KEYS] mkt-info)
                          dnum->iday (->sorted-map (zipmap (sort day-nums) (range)))
-                         result-1   (sp/transform [ticker sp/MAP-VALS]
-                                      (fn [info-map]
-                                        (let [dnum   (grab :dnum info-map)
-                                              iday   (grab dnum dnum->iday)
-                                              result (glue info-map (vals->map iday))]
-                                          result))
-                                      mkt-info)]
+                         result-1   (->> mkt-info
+                                      (sp/transform [ticker sp/MAP-VALS]
+                                        (fn [info-map]
+                                          (let [dnum (grab :dnum info-map)
+                                                iday (grab dnum dnum->iday)]
+                                            (glue info-map (vals->map iday))))))]
                      result-1))
         state-1  (add-iday state-0 "aaa")
 
+        ; add an arbitrary field "price-str" each entity map
         add-strs (fn [mkt-info ticker]
-                   (sp/transform [ticker sp/MAP-VALS]
-                     (s/fn [info-map :- tsk/KeyMap]
-                       (assoc info-map
-                         :price-str (format "$%.3f" (bigdec (grab :price info-map)))))
-                     mkt-info))
+                   (->> mkt-info
+                     (sp/transform [ticker sp/MAP-VALS]
+                       (s/fn [info-map :- tsk/KeyMap]
+                         (let [price-str (format "$%.3f" (bigdec (grab :price info-map)))]
+                           (glue info-map (vals->map price-str)))))))
         state-2  (it-> state-1
                    (add-iday it "bbb")
                    (add-strs it "bbb"))]
     ; can validate state at any time desired here or in functions
     (is (s/validate {s/Str {s/Int tsk/KeyMap}} state-0))
 
-    (is= state-1 {"aaa"
-                  {0 {:dnum 0, :iday 0, :price 10},
-                   1 {:dnum 1, :iday 1, :price 11},
-                   3 {:dnum 3, :iday 2, :price 13}},
-                  "bbb"
-                  {0 {:dnum 0, :price 20},
-                   1 {:dnum 1, :price 21},
-                   2 {:dnum 2, :price 22}}})
+    (is= state-1
+      {"aaa"
+       {0 {:dnum 0, :iday 0, :price 10},
+        1 {:dnum 1, :iday 1, :price 11},
+        3 {:dnum 3, :iday 2, :price 13}},
+       "bbb"
+       {0 {:dnum 0, :price 20},
+        1 {:dnum 1, :price 21},
+        2 {:dnum 2, :price 22}}})
 
     (is= (misc/walk-map->sorted state-2)
       {"aaa"
