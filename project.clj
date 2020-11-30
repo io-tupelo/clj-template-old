@@ -7,9 +7,10 @@
                  [cambium/cambium.codec-simple "1.0.0"]
                  [cambium/cambium.core         "1.0.0"]
                  [cambium/cambium.logback.core "0.4.4"]
+                 [com.rpl/specter "1.1.3"]
                  [org.clojure/clojure "1.10.1"]
                  [prismatic/schema "1.1.12"]
-                 [tupelo "20.08.27b"]
+                 [tupelo "20.11.29a"]
                  ]
   :plugins [
     [com.jakemccrary/lein-test-refresh "0.24.1"]
