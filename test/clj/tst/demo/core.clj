@@ -45,12 +45,18 @@
         (distinct it)
         (vec it)))
 
+    ; delete maps where the (<= :idx 2)
     (is= (it-> ticker-dayrecs
            (sp/setval [sp/MAP-VALS sp/ALL #(<= (grab :idx %) 2)] sp/NONE it))
       {:aaa [{:idx 3 :price 13}
              {:idx 4 :price 14}]
        :bbb [{:idx 3 :price 23}
              {:idx 4 :price 24}]}))
+
+  ; delete MapEntries with an odd value
+  (is= (it-> {:a 1 :b 2 :c 3 :d 4 :e 5 :f 6}
+         (sp/setval [sp/MAP-VALS odd?] sp/NONE it))
+    {:b 2, :d 4, :f 6})
 
   ; Doesn't work unless sorted map
   (let [m1 {:aaa {0 {:dnum 0 :price 10}
