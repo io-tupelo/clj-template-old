@@ -6,7 +6,7 @@
     [tupelo.misc :as misc]
     [tupelo.schema :as tsk]))
 
-(dotest
+(dotest-focus
   ; (is= true false)
 
   ; inc doubly-nested map values
@@ -40,8 +40,8 @@
                               {:idx 4 :price 24}]}]
     (is= [2 3 4 1] ; select all the :idx keys
       (it-> ticker-dayrecs
-        (sp/transform [sp/MAP-VALS sp/ALL] :idx it)
         (sp/select [sp/MAP-VALS sp/ALL] it)
+        (sp/transform [sp/ALL] :idx it)
         (distinct it)
         (vec it)))
 
