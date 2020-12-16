@@ -31,18 +31,26 @@
       [[1 2 4] [] [5 2] [2 4] []]))
 
   ; delete maps where the :idx value is <= 2
-  (is= (it-> {:aaa [{:idx 2 :price 12}
-                    {:idx 3 :price 13}
-                    {:idx 4 :price 14}]
-              :bbb [{:idx 1 :price 21}
-                    {:idx 2 :price 22}
-                    {:idx 3 :price 23}
-                    {:idx 4 :price 24}]}
-         (sp/setval [sp/MAP-VALS sp/ALL #(<= (grab :idx %) 2)] sp/NONE it))
-    {:aaa [{:idx 3 :price 13}
-           {:idx 4 :price 14}]
-     :bbb [{:idx 3 :price 23}
-           {:idx 4 :price 24}]})
+  (let [ticker-dayrecs {:aaa [{:idx 2 :price 12}
+                              {:idx 3 :price 13}
+                              {:idx 4 :price 14}]
+                        :bbb [{:idx 1 :price 21}
+                              {:idx 2 :price 22}
+                              {:idx 3 :price 23}
+                              {:idx 4 :price 24}]}]
+    (is= [2 3 4 1] ; select all the :idx keys
+      (it-> ticker-dayrecs
+        (sp/transform [sp/MAP-VALS sp/ALL] :idx it)
+        (sp/select [sp/MAP-VALS sp/ALL] it)
+        (distinct it)
+        (vec it)))
+
+    (is= (it-> ticker-dayrecs
+           (sp/setval [sp/MAP-VALS sp/ALL #(<= (grab :idx %) 2)] sp/NONE it))
+      {:aaa [{:idx 3 :price 13}
+             {:idx 4 :price 14}]
+       :bbb [{:idx 3 :price 23}
+             {:idx 4 :price 24}]}))
 
   ; Doesn't work unless sorted map
   (let [m1 {:aaa {0 {:dnum 0 :price 10}
@@ -104,16 +112,19 @@
         2 {:dnum 2, :price 22}}})
 
     (is= (misc/walk-map->sorted state-2)
-      {"aaa"
-       {0 {:dnum 0, :iday 0, :price 10},
-        1 {:dnum 1, :iday 1, :price 11},
-        3 {:dnum 3, :iday 2, :price 13}},
-       "bbb"
-       {0 {:dnum 0, :iday 0, :price 20, :price-str "$20.000"},
-        1 {:dnum 1, :iday 1, :price 21, :price-str "$21.000"},
-        2 {:dnum 2, :iday 2, :price 22, :price-str "$22.000"}}})
+      {"aaa" {0 {:dnum 0, :iday 0, :price 10},
+              1 {:dnum 1, :iday 1, :price 11},
+              3 {:dnum 3, :iday 2, :price 13}},
 
-    ))
+       "bbb" {0 {:dnum 0, :iday 0, :price 20, :price-str "$20.000"},
+              1 {:dnum 1, :iday 1, :price 21, :price-str "$21.000"},
+              2 {:dnum 2, :iday 2, :price 22, :price-str "$22.000"}}
+
+       "ab"  {0 {:dnum 0, :iday 0, :price 30, :price-str "$30.000"},
+              1 {:dnum 1, :iday 1, :price 31, :price-str "$31.000"},
+              2 {:dnum 2, :iday 2, :price 32, :price-str "$32.000"}}
+       })))
+
 
 (declare walk-impl walk-map walk-list walk-set)
 
