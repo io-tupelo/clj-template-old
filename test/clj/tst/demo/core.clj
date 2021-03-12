@@ -73,6 +73,26 @@
            (sp/select [:aaa sp/MAP-VALS :price] it))
       [10 11 12])))
 
+;---------------------------------------------------------------------------------------------------
+(dotest-focus
+  (let [book     {:intro              {:one-liners [{:line "wowza" :rating 7}
+                                                    {:line "cool!" :rating 4}]}
+                  :how-many-lines     10
+                  :rubbish-one-liners [{:line "bongo" :rating 1}
+                                       {:line "foo" :rating 2}]
+                  :other-info         {:author {:name "me" :age 24}}}
+        expected {:intro              {:one-liners [{:line "wowza" :rating 7}
+                                                    {:line "cool!" :rating 4}]}
+                  :how-many-lines     10
+                  :rubbish-one-liners [{:line "bongo"}
+                                       {:line "foo"}]
+                  :other-info         {:author {:name "me"}}}]
+    (is= expected
+      (it-> book
+        (sp/setval [:rubbish-one-liners sp/ALL :rating] sp/NONE it)
+        (sp/setval [:other-info :author :age] sp/NONE it)))))
+
+;---------------------------------------------------------------------------------------------------
 (dotest
   (let [state-0  {"aaa" {0 {:dnum 0 :price 10}
                          3 {:dnum 3 :price 13}
