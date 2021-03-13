@@ -9,6 +9,7 @@
                  [cambium/cambium.logback.core "0.4.4"]
                  [com.rpl/specter "1.1.3"]
                  [org.clojure/clojure "1.10.1"]
+                 [org.clojure/data.csv "1.0.0"]
                  [prismatic/schema "1.1.12"]
                  [tupelo "20.12.01"]
                  ]
