@@ -10,7 +10,7 @@
                  [com.rpl/specter "1.1.3"]
                  [org.clojure/clojure "1.10.3"]
                  [prismatic/schema "1.1.12"]
-                 [tupelo "21.04.13"]
+                 [tupelo "21.06.03b"]
                  ]
   :plugins [
     [com.jakemccrary/lein-test-refresh "0.24.1"]
