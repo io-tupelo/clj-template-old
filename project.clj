@@ -5,9 +5,6 @@
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [
-                 [cambium/cambium.codec-simple "1.0.0"]
-                 [cambium/cambium.core         "1.1.1"]
-                 [cambium/cambium.logback.core "0.4.5"]
                  [com.cognitect.aws/api "0.8.539"]
                  [com.cognitect.aws/endpoints "1.1.12.168"]
                  [com.cognitect.aws/s3 "820.2.1083.0"]

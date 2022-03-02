@@ -1,7 +1,6 @@
 (ns demo.core
   (:use tupelo.core)
   (:require
-    [cambium.core :as log]
     [schema.core :as s])
   (:gen-class))
 
@@ -14,9 +13,7 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (log/info "-main - enter")
-
+  ; (println "-main - enter")
   (println "Hello, World! Again!")
-
-  (log/info "-main - leave"))
-
+  ; (println "-main - leave")
+  )
