@@ -4,7 +4,8 @@
     [tupelo.string :as str]
     ))
 
-(dotest-focus
-  (is= 5 (add2 2 3)))
+(dotest
+  (is= 5 (add2 2 3))
+  )
 
 
