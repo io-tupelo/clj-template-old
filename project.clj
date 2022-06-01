@@ -5,12 +5,9 @@
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [
-                 [com.cognitect.aws/api "0.8.539"]
-                 [com.cognitect.aws/endpoints "1.1.12.168"]
-                 [com.cognitect.aws/s3 "820.2.1083.0"]
-                 [org.clojure/clojure "1.10.3"]
-                 [tupelo "22.03.08"]
-                 [prismatic/schema "1.2.0"]
+                 [org.clojure/clojure "1.11.1"]
+                 [prismatic/schema "1.2.1"]
+                 [tupelo "22.05.24b"]
                  ]
   :plugins [
             [com.jakemccrary/lein-test-refresh "0.25.0"]
