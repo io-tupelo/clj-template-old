@@ -5,10 +5,19 @@
            cambium/cambium.codec-simple {:mvn/version "0.9.3"}
            cambium/cambium.core         {:mvn/version "0.9.3"}
            cambium/cambium.logback.core {:mvn/version "0.4.3"}
-           org.clojure/clojure          {:mvn/version "1.10.1"}
+           org.clojure/clojure          {:mvn/version "1.11.1"}
            prismatic/schema             {:mvn/version "1.1.12"}
            tupelo/tupelo                {:mvn/version "0.9.200"}
            }
 
- :aliases {:test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.0-612"}}}}
- }
+ :aliases {
+           :run  {:exec-fn demo.core/-main
+                  }
+           :test         {:extra-paths ["test/clj"]
+                          :extra-deps  {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                          :main-opts   ["-m" "cognitect.test-runner"]
+                          :exec-fn     cognitect.test-runner.api/test}
+           :test-refresh {:extra-paths ["test/clj"]
+                          :extra-deps  {com.jakemccrary/test-refresh {:mvn/version "0.25.0"}}
+                          :main-opts   ["-m" "com.jakemccrary.test-refresh"]}
+           }}
