@@ -2,13 +2,9 @@
            "target/java" ; compiled Java *.class files
            ]
  :deps    {
-           ;cambium/cambium.codec-simple {:mvn/version "0.9.3"}
-           ;cambium/cambium.core         {:mvn/version "0.9.3"}
-           ;cambium/cambium.logback.core {:mvn/version "0.4.3"}
-
-           org.clojure/clojure          {:mvn/version "1.11.1"}
-           prismatic/schema             {:mvn/version "1.3.5"}
-           tupelo/tupelo                {:mvn/version "22.08.03"}
+           org.clojure/clojure          {:mvn/version "1.12.0"}
+           prismatic/schema             {:mvn/version "1.4.1"}
+           tupelo/tupelo                {:mvn/version "24.09.30"}
            }
 
  :aliases {
