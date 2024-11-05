@@ -5,9 +5,9 @@
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [
-                 [org.clojure/clojure "1.11.1"]
-                 [prismatic/schema "1.2.1"]
-                 [tupelo "22.05.24b"]
+                 [org.clojure/clojure "1.12.0"]
+                 [prismatic/schema "1.4.1"]
+                 [tupelo "24.09.30"]
                  ]
   :plugins [
             [com.jakemccrary/lein-test-refresh "0.25.0"]
